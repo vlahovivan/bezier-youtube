@@ -8,7 +8,7 @@ please give me credit by linking my Youtube channel
 and the video link below:
 
 https://www.youtube.com/user/ivanvlahov922
-https://youtu.be/GfPJ3Dw6GeY !!! Promini ovo !!!
+https://youtu.be/AMJhfFIzT-k
 
 */
 
@@ -24,10 +24,12 @@ Bezier bezier;
 
 boolean bezierIsDrawing = false;
 
+PImage cursor;
+
 void setup() {
 	// size(960, 540);
 	fullScreen();
-
+  noCursor();
 	
 	points = new ArrayList<PVector>();
 	interpolationPoints = new ArrayList<PVector>();
@@ -37,6 +39,8 @@ void setup() {
 	strokeWeight(3);
 	textAlign(CENTER);
 	textSize(14);
+
+  cursor = loadImage("cursor.png");
 }
 
 void draw() {
@@ -71,8 +75,9 @@ void draw() {
 
 	
 	fill(#ffffff);
-	text("Click on screen to add bezier points, press ENTER to start the simulation, press BACKSPACE to clear the screen. Created by Ivan Vlahov, find me on YouTube!", width/2, 0.98*height);
+	text("Click on screen to add Bezier points, press ENTER to start the simulation, press BACKSPACE to clear the screen. Created by Ivan Vlahov, find me on YouTube!", width/2, 0.98*height);
 
+  if(!bezierIsDrawing) image(cursor, mouseX, mouseY);
 }
 
 void mouseReleased() {
